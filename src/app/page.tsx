@@ -1,69 +1,161 @@
-import Image from "next/image";
+import Link from "next/link";
+import { LogoMark } from "@/components/brand/logo";
+import { EntryList } from "@/components/entry";
+import { FeaturedProject } from "@/components/cards/featured-project";
+import { Gallery } from "@/components/cards/gallery";
+import { LibraryRow } from "@/components/cards/library-row";
+import { PostList } from "@/components/cards/post-list";
+import { Constrained } from "@/components/layout/constrained";
+import { Section, SectionTitle } from "@/components/layout/section";
+import { Reveal, Stagger, StaggerItem } from "@/components/motion";
+import { ResearchTeaser } from "@/components/research/research-teaser";
+import { SocialLinks } from "@/components/social-links";
+import { site } from "@/content/site";
+import {
+  featured,
+  featuredHighlights,
+  libraries,
+  projects,
+} from "@/content/works";
+import { getPosts } from "@/lib/blog/posts";
 
-export default function Home() {
+export default async function Home() {
+  const posts = (await getPosts()).slice(0, 4);
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+    <main className="flex flex-col items-center pt-[8vh] pb-32 md:pt-[10vh]">
+      <Hero />
+
+      <div className="mt-14 flex w-full flex-col gap-28 md:mt-20 md:gap-36">
+        <Section id="featured">
+          <Constrained className="gap-0">
+            <Reveal>
+              <SectionTitle>Most popular</SectionTitle>
+              <FeaturedProject
+                work={featured}
+                highlights={featuredHighlights}
+              />
+            </Reveal>
+          </Constrained>
+        </Section>
+
+        <Section id="projects" className="flex-col items-center">
+          <Constrained className="gap-0">
+            <Reveal>
+              <TitleRow
+                title="More projects"
+                href="/projects"
+                label="All projects"
+              />
+            </Reveal>
+          </Constrained>
+          <Gallery
+            works={projects.filter((work) => work.slug !== featured.slug)}
+          />
+        </Section>
+
+        <Section id="research">
+          <Constrained className="gap-0">
+            <Reveal>
+              <SectionTitle>Research</SectionTitle>
+              <ResearchTeaser />
+            </Reveal>
+          </Constrained>
+        </Section>
+
+        <Section id="libraries">
+          <Constrained className="gap-0">
+            <Reveal>
+              <TitleRow
+                title="Libraries"
+                href="/libraries"
+                label="All libraries"
+              />
+              <EntryList>
+                {libraries.map((work) => (
+                  <LibraryRow key={work.slug} work={work} />
+                ))}
+              </EntryList>
+            </Reveal>
+          </Constrained>
+        </Section>
+
+        {posts.length > 0 && (
+          <Section id="writing">
+            <Constrained className="gap-0">
+              <Reveal>
+                <TitleRow title="Writing" href="/blog" label="All posts" />
+                <PostList posts={posts} />
+              </Reveal>
+            </Constrained>
+          </Section>
+        )}
+
+        <Section id="contact">
+          <Constrained className="gap-0">
+            <Reveal>
+              <SectionTitle>Get in touch</SectionTitle>
+              <p className="max-w-md leading-relaxed text-neutral-500">
+                Questions, bug reports and ideas go to
+              </p>
+              <a
+                href={`mailto:${site.email}`}
+                className="mt-4 inline-block w-fit text-lg font-medium text-neutral-800 underline decoration-neutral-300 underline-offset-4 transition-colors hover:decoration-neutral-800"
+              >
+                {site.email}
+              </a>
+            </Reveal>
+          </Constrained>
+        </Section>
+      </div>
+    </main>
+  );
+}
+
+function Hero() {
+  return (
+    <Section id="home">
+      <Constrained className="gap-0">
+        <Stagger className="flex flex-col">
+          <StaggerItem>
+            <div className="flex items-center gap-3">
+              <LogoMark className="size-9" />
+              <div className="grid">
+                <span className="text-[15px] font-medium text-neutral-800">
+                  {site.name}
+                </span>
+                <span className="text-[12px] text-neutral-500">
+                  Independent software from {site.location.split(",")[0]}
+                </span>
+              </div>
+            </div>
+          </StaggerItem>
+        </Stagger>
+      </Constrained>
+    </Section>
+  );
+}
+
+function TitleRow({
+  title,
+  href,
+  label,
+}: {
+  title: string;
+  href: string;
+  label: string;
+}) {
+  return (
+    <div className="mb-5 flex items-baseline justify-between gap-4">
+      <h2 className="text-xl font-medium tracking-tight text-neutral-800">
+        {title}
+      </h2>
+      <Link
+        href={href}
+        className="text-sm text-neutral-500 transition-colors hover:text-neutral-900"
+      >
+        {label}
+      </Link>
     </div>
   );
 }

@@ -1,0 +1,58 @@
+import type { Metadata } from "next";
+import { Constrained } from "@/components/layout/constrained";
+
+/**
+ * Layout for legal and policy pages. Children are plain HTML (headings,
+ * paragraphs, lists, links) and get their typography from `.legal-prose`.
+ */
+export function LegalPage({
+  title,
+  updated,
+  intro,
+  children,
+}: {
+  title: string;
+  /** e.g. "November 3, 2020" */
+  updated?: string;
+  /** Optional lead paragraph shown under the title, outside the prose. */
+  intro?: React.ReactNode;
+  children: React.ReactNode;
+}) {
+  return (
+    <main className="flex flex-col items-center pt-16 pb-24 sm:pt-24">
+      <Constrained className="gap-0">
+        <header className="flex flex-col gap-3">
+          <h1 className="text-3xl font-medium tracking-tight text-neutral-800 sm:text-4xl">
+            {title}
+          </h1>
+          {updated && (
+            <p className="text-sm text-neutral-400">Last updated {updated}</p>
+          )}
+          {intro && (
+            <p className="max-w-xl text-lg leading-relaxed text-neutral-500 text-balance">
+              {intro}
+            </p>
+          )}
+        </header>
+
+        <article className="legal-prose mt-8 max-w-prose">{children}</article>
+      </Constrained>
+    </main>
+  );
+}
+
+/**
+ * Metadata for a legal page. Utility pages (store redirects, extension
+ * policies) pass `index: false` to stay out of search results.
+ */
+export function legalMetadata(
+  title: string,
+  description?: string,
+  { index = true }: { index?: boolean } = {},
+): Metadata {
+  return {
+    title,
+    description,
+    robots: { index, follow: true },
+  };
+}

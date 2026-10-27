@@ -1,26 +1,285 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --font-sans: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
+    --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+    --color-sidebar-ring: var(--sidebar-ring);
+    --color-sidebar-border: var(--sidebar-border);
+    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+    --color-sidebar-accent: var(--sidebar-accent);
+    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+    --color-sidebar-primary: var(--sidebar-primary);
+    --color-sidebar-foreground: var(--sidebar-foreground);
+    --color-sidebar: var(--sidebar);
+    --color-chart-5: var(--chart-5);
+    --color-chart-4: var(--chart-4);
+    --color-chart-3: var(--chart-3);
+    --color-chart-2: var(--chart-2);
+    --color-chart-1: var(--chart-1);
+    --color-ring: var(--ring);
+    --color-input: var(--input);
+    --color-border: var(--border);
+    --color-destructive: var(--destructive);
+    --color-accent-foreground: var(--accent-foreground);
+    --color-accent: var(--accent);
+    --color-muted-foreground: var(--muted-foreground);
+    --color-muted: var(--muted);
+    --color-secondary-foreground: var(--secondary-foreground);
+    --color-secondary: var(--secondary);
+    --color-primary-foreground: var(--primary-foreground);
+    --color-primary: var(--primary);
+    --color-popover-foreground: var(--popover-foreground);
+    --color-popover: var(--popover);
+    --color-card-foreground: var(--card-foreground);
+    --color-card: var(--card);
+    --radius-sm: calc(var(--radius) * 0.6);
+    --radius-md: calc(var(--radius) * 0.8);
+    --radius-lg: var(--radius);
+    --radius-xl: calc(var(--radius) * 1.4);
+    --radius-2xl: calc(var(--radius) * 1.8);
+    --radius-3xl: calc(var(--radius) * 2.2);
+    --radius-4xl: calc(var(--radius) * 2.6);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+    --card: oklch(1 0 0);
+    --card-foreground: oklch(0.145 0 0);
+    --popover: oklch(1 0 0);
+    --popover-foreground: oklch(0.145 0 0);
+    --primary: oklch(0.488 0.243 264.376);
+    --primary-foreground: oklch(0.97 0.014 254.604);
+    --secondary: oklch(0.967 0.001 286.375);
+    --secondary-foreground: oklch(0.21 0.006 285.885);
+    --muted: oklch(0.97 0 0);
+    --muted-foreground: oklch(0.556 0 0);
+    --accent: oklch(0.97 0 0);
+    --accent-foreground: oklch(0.205 0 0);
+    --destructive: oklch(0.577 0.245 27.325);
+    --border: oklch(0.922 0 0);
+    --input: oklch(0.922 0 0);
+    --ring: oklch(0.708 0 0);
+    --chart-1: oklch(0.809 0.105 251.813);
+    --chart-2: oklch(0.623 0.214 259.815);
+    --chart-3: oklch(0.546 0.245 262.881);
+    --chart-4: oklch(0.488 0.243 264.376);
+    --chart-5: oklch(0.424 0.199 265.638);
+    --radius: 0.625rem;
+    --sidebar: oklch(0.985 0 0);
+    --sidebar-foreground: oklch(0.145 0 0);
+    --sidebar-primary: oklch(0.546 0.245 262.881);
+    --sidebar-primary-foreground: oklch(0.97 0.014 254.604);
+    --sidebar-accent: oklch(0.97 0 0);
+    --sidebar-accent-foreground: oklch(0.205 0 0);
+    --sidebar-border: oklch(0.922 0 0);
+    --sidebar-ring: oklch(0.708 0 0);
+    --background: oklch(1 0 0);
+    --foreground: oklch(0.145 0 0);
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.dark {
+    --background: oklch(0.145 0 0);
+    --foreground: oklch(0.985 0 0);
+    --card: oklch(0.205 0 0);
+    --card-foreground: oklch(0.985 0 0);
+    --popover: oklch(0.205 0 0);
+    --popover-foreground: oklch(0.985 0 0);
+    --primary: oklch(0.424 0.199 265.638);
+    --primary-foreground: oklch(0.97 0.014 254.604);
+    --secondary: oklch(0.274 0.006 286.033);
+    --secondary-foreground: oklch(0.985 0 0);
+    --muted: oklch(0.269 0 0);
+    --muted-foreground: oklch(0.708 0 0);
+    --accent: oklch(0.269 0 0);
+    --accent-foreground: oklch(0.985 0 0);
+    --destructive: oklch(0.704 0.191 22.216);
+    --border: oklch(1 0 0 / 10%);
+    --input: oklch(1 0 0 / 15%);
+    --ring: oklch(0.556 0 0);
+    --chart-1: oklch(0.809 0.105 251.813);
+    --chart-2: oklch(0.623 0.214 259.815);
+    --chart-3: oklch(0.546 0.245 262.881);
+    --chart-4: oklch(0.488 0.243 264.376);
+    --chart-5: oklch(0.424 0.199 265.638);
+    --sidebar: oklch(0.205 0 0);
+    --sidebar-foreground: oklch(0.985 0 0);
+    --sidebar-primary: oklch(0.623 0.214 259.815);
+    --sidebar-primary-foreground: oklch(0.97 0.014 254.604);
+    --sidebar-accent: oklch(0.269 0 0);
+    --sidebar-accent-foreground: oklch(0.985 0 0);
+    --sidebar-border: oklch(1 0 0 / 10%);
+    --sidebar-ring: oklch(0.556 0 0);
+}
+
+@layer base {
+    * {
+        @apply border-border outline-ring/50;
+    }
+    body {
+        @apply bg-background text-foreground;
+    }
+    button:not(:disabled),
+    [role="button"]:not(:disabled) {
+        cursor: pointer;
+    }
+    html {
+        @apply font-sans;
+    }
+}
+
+/* Typography for long-form legal text written as plain HTML. */
+@layer components {
+    .legal-prose {
+        @apply text-[15px] leading-relaxed text-neutral-600;
+    }
+    .legal-prose h2 {
+        @apply mt-10 mb-3 text-lg font-medium tracking-tight text-neutral-800;
+    }
+    .legal-prose h3 {
+        @apply mt-8 mb-2 text-base font-medium text-neutral-800;
+    }
+    .legal-prose h4 {
+        @apply mt-6 mb-2 text-sm font-medium text-neutral-800;
+    }
+    .legal-prose p,
+    .legal-prose address {
+        @apply my-3 not-italic;
+    }
+    .legal-prose ul {
+        @apply my-3 list-disc space-y-1.5 pl-5;
+    }
+    .legal-prose a {
+        @apply break-words text-neutral-800 underline decoration-neutral-300 underline-offset-[3px] transition-colors hover:decoration-neutral-800;
+    }
+    .legal-prose code {
+        @apply rounded bg-neutral-100 px-1 py-0.5 font-mono text-[13px] text-neutral-700;
+    }
+    .legal-prose strong {
+        @apply font-medium text-neutral-800;
+    }
+}
+
+/* Long-form project writeups. Children are plain HTML. */
+@layer components {
+    .writeup-prose {
+        @apply text-base leading-relaxed text-neutral-600;
+    }
+    .writeup-prose > * + * {
+        @apply mt-4;
+    }
+    .writeup-prose h2 {
+        @apply mt-12 mb-1 text-xl font-medium tracking-tight text-neutral-800;
+    }
+    .writeup-prose h3 {
+        @apply mt-8 text-base font-medium text-neutral-800;
+    }
+    /* Unclassed lists only, so components like charts keep their own markup. */
+    .writeup-prose :is(ul, ol):not([class]) {
+        @apply space-y-1.5 pl-5;
+    }
+    .writeup-prose ul:not([class]) {
+        @apply list-disc;
+    }
+    .writeup-prose ol:not([class]) {
+        @apply list-decimal;
+    }
+    .writeup-prose li > :is(ul, ol):not([class]) {
+        @apply mt-1.5;
+    }
+    .writeup-prose :is(ul, ol):not([class]) > li::marker {
+        @apply text-neutral-300;
+    }
+    .writeup-prose a {
+        @apply text-neutral-800 underline decoration-neutral-300 underline-offset-[3px] transition-colors hover:decoration-neutral-800;
+    }
+    .writeup-prose strong {
+        @apply font-medium text-neutral-800;
+    }
+    .writeup-prose code {
+        @apply rounded bg-neutral-100 px-1 py-0.5 font-mono text-[14px] text-neutral-700;
+    }
+    .writeup-prose pre {
+        @apply overflow-x-auto rounded-2xl bg-neutral-900 px-5 py-4 font-mono text-[13px] leading-relaxed text-neutral-200;
+    }
+    .writeup-prose pre code {
+        @apply bg-transparent p-0 text-inherit;
+    }
+    .writeup-prose blockquote {
+        @apply border-l-2 border-neutral-200 pl-4 text-neutral-500;
+    }
+}
+
+/* Blocks that only blog posts use. Posts also get `.writeup-prose`. */
+@layer components {
+    .writeup-prose figure img,
+    .writeup-prose figure video {
+        @apply w-full rounded-2xl border border-neutral-200/70;
+    }
+    .writeup-prose figcaption {
+        @apply mt-2 text-center text-sm text-neutral-400;
+    }
+    .writeup-prose hr {
+        @apply my-10 border-neutral-200;
+    }
+    .writeup-prose mark {
+        @apply rounded bg-yellow-100 px-0.5 text-inherit;
+    }
+    .writeup-prose details {
+        @apply rounded-2xl bg-neutral-100 px-5 py-3;
+    }
+    .writeup-prose summary {
+        @apply cursor-pointer font-medium text-neutral-800 [&>h2]:inline [&>h3]:inline [&>h2]:m-0 [&>h3]:m-0;
+    }
+    .writeup-prose details[open] > summary {
+        @apply mb-3;
+    }
+    .blog-code {
+        @apply min-w-0;
+    }
+    .blog-code pre {
+        @apply overflow-x-auto rounded-2xl !bg-neutral-900 px-5 py-4 font-mono text-[13px] leading-relaxed;
+    }
+    .blog-callout {
+        @apply flex gap-3 rounded-2xl bg-neutral-100 px-5 py-4 text-[15px];
+    }
+    .blog-callout > div > * + * {
+        @apply mt-3;
+    }
+    .blog-table {
+        @apply overflow-x-auto rounded-2xl border border-neutral-200;
+    }
+    .blog-table table {
+        @apply w-full border-collapse text-sm;
+    }
+    .blog-table th,
+    .blog-table td {
+        @apply border-b border-neutral-100 px-4 py-2.5 text-left align-top;
+    }
+    .blog-table tr:last-child > * {
+        @apply border-b-0;
+    }
+    .blog-table th {
+        @apply bg-neutral-50 font-medium text-neutral-800;
+    }
+    .blog-toc {
+        @apply rounded-2xl bg-neutral-100 px-5 py-4 text-[15px];
+    }
+    .writeup-prose .blog-toc ul {
+        @apply list-none space-y-1.5 pl-0;
+    }
+    .writeup-prose .blog-toc a {
+        @apply text-neutral-600 no-underline hover:text-neutral-900;
+    }
+    .writeup-prose .blog-link-card {
+        @apply flex items-center justify-between gap-4 rounded-2xl bg-neutral-100 px-5 py-4 no-underline transition-colors hover:bg-neutral-200/70;
+    }
+    .blog-column > * + * {
+        @apply mt-4;
+    }
+    .blog-equation {
+        @apply overflow-x-auto rounded-2xl bg-neutral-100 px-5 py-4 text-center font-mono text-sm;
+    }
 }
