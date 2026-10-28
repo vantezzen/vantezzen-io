@@ -8,7 +8,7 @@ The website of vantezzen, an independent software label from Berlin: web apps, o
 - React 19 with the React Compiler
 - Tailwind CSS 4
 - Motion for entrance animations
-- Notion (public page, read with `notion-client`) for blog posts, Shiki for code highlighting
+- Notion (public page, read with `notion-client`) for blog posts, Shiki for code highlighting, beautiful-mermaid for diagrams
 - Bun as package manager
 
 ## Getting started
@@ -88,6 +88,8 @@ The posts database on that page needs these properties:
 - `Public` (checkbox): unchecked hides the post
 
 The blog shows the rows of the database’s first view. Property names are set in `src/lib/blog/notion.ts`.
+
+Code blocks with the language set to **Mermaid** render as diagrams, using [beautiful-mermaid](https://github.com/lukilabs/beautiful-mermaid) on the server. Flowcharts, state, sequence, class, ER and XY charts are supported; anything the renderer can’t parse shows as a code block.
 
 Link previews (“mention” chips) can’t be read through the public API and are left out of the text; use plain links instead.
 

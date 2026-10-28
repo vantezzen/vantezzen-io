@@ -6,6 +6,7 @@ import { TextLink } from "@/components/text-link";
 import { site } from "@/content/site";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/contact" },
   title: "Contact",
   description: "How to reach vantezzen about its projects, libraries and research.",
 };

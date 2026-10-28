@@ -17,6 +17,8 @@ const nextConfig: NextConfig = {
     // this deployment and every old URL lands on the same post here.
     const oldBlog = [{ type: "host" as const, value: "read.vantezzen.io" }];
     return [
+      // Next.js names the root page "index" internally; never serve it twice.
+      { source: "/index", destination: "/", permanent: true },
       { source: "/writing", destination: "/blog", permanent: true },
       {
         source: "/blog/building-liquid-glass-on-the-web",

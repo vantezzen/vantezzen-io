@@ -15,6 +15,7 @@ import {
 } from "@/content/works";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/projects" },
   title: "Projects",
   description:
     "Free web apps by vantezzen: Wrapped for TikTok, the koi.photo editor, Infinite Craft Solver, Skip Silence and more.",

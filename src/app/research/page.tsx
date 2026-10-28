@@ -14,6 +14,7 @@ import reportImage from "@/assets/projects/wrapped-tiktok/state-of-the-feed.png"
 const REPORT_URL = "https://wrapped.vantezzen.io/state-of-the-feed";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/research" },
   title: "Research: State of the Feed",
   description:
     "Findings from 16,981 anonymized TikTok data donations: how fast people swipe, when they scroll, how long sessions last and how personal every feed is.",

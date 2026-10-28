@@ -8,6 +8,7 @@ import { libraries } from "@/content/works";
 import { site } from "@/content/site";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/libraries" },
   title: "Open source libraries",
   description:
     "Open source libraries by vantezzen: AutoForm, libconsent, langfuse-eve and launchroom. MIT licensed and documented.",

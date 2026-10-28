@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { LogoMark } from "@/components/brand/logo";
 import { EntryList } from "@/components/entry";
@@ -9,7 +10,6 @@ import { Constrained } from "@/components/layout/constrained";
 import { Section, SectionTitle } from "@/components/layout/section";
 import { Reveal, Stagger, StaggerItem } from "@/components/motion";
 import { ResearchTeaser } from "@/components/research/research-teaser";
-import { SocialLinks } from "@/components/social-links";
 import { site } from "@/content/site";
 import {
   featured,
@@ -18,6 +18,10 @@ import {
   projects,
 } from "@/content/works";
 import { getPosts } from "@/lib/blog/posts";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 export default async function Home() {
   const posts = (await getPosts()).slice(0, 4);

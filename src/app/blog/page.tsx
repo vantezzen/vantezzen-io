@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   description:
     "Articles from vantezzen on web development, browser APIs, reverse engineering and the projects behind it.",
   alternates: {
+    canonical: "/blog",
     types: { "application/rss+xml": "/blog/feed.xml" },
   },
 };

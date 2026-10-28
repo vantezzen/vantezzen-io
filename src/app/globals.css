@@ -283,3 +283,13 @@
         @apply overflow-x-auto rounded-2xl bg-neutral-100 px-5 py-4 text-center font-mono text-sm;
     }
 }
+
+/* Mermaid diagrams rendered to SVG on the server. */
+@layer components {
+    .blog-mermaid > div {
+        @apply flex justify-center overflow-x-auto rounded-2xl bg-neutral-100 p-4;
+    }
+    .blog-mermaid svg {
+        @apply h-auto max-w-full;
+    }
+}
