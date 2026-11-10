@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { EzoicAd } from "@/components/ads/ezoic-ad";
 import { LogoMark } from "@/components/brand/logo";
 import { EntryList } from "@/components/entry";
 import { FeaturedProject } from "@/components/cards/featured-project";
@@ -18,6 +19,7 @@ import {
   projects,
 } from "@/content/works";
 import { getPosts } from "@/lib/blog/posts";
+import { AD_PLACEMENTS } from "@/lib/ezoic";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/" },
@@ -29,6 +31,10 @@ export default async function Home() {
   return (
     <main className="flex flex-col items-center pt-[8vh] pb-32 md:pt-[10vh]">
       <Hero />
+
+      <Constrained className="mt-10 gap-0">
+        <EzoicAd id={AD_PLACEMENTS.homeTop} />
+      </Constrained>
 
       <div className="mt-14 flex w-full flex-col gap-28 md:mt-20 md:gap-36">
         <Section id="featured">
@@ -42,6 +48,10 @@ export default async function Home() {
             </Reveal>
           </Constrained>
         </Section>
+
+        <Constrained className="gap-0">
+          <EzoicAd id={AD_PLACEMENTS.homeMiddle} />
+        </Constrained>
 
         <Section id="projects" className="flex-col items-center">
           <Constrained className="gap-0">
@@ -66,6 +76,10 @@ export default async function Home() {
             </Reveal>
           </Constrained>
         </Section>
+
+        <Constrained className="gap-0">
+          <EzoicAd id={AD_PLACEMENTS.homeBottom} />
+        </Constrained>
 
         <Section id="libraries">
           <Constrained className="gap-0">

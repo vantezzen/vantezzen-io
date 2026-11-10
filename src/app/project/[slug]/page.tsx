@@ -5,6 +5,7 @@ import { Suspense } from "react";
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { Github } from "@thesvg/react";
+import { EzoicAd } from "@/components/ads/ezoic-ad";
 import { Constrained } from "@/components/layout/constrained";
 import { Reveal, Stagger, StaggerItem } from "@/components/motion";
 import { TagList } from "@/components/project/tag-list";
@@ -12,6 +13,7 @@ import { TextLink } from "@/components/text-link";
 import { site } from "@/content/site";
 import { getNext, getWork, works } from "@/content/works";
 import { writeups } from "@/content/writeups";
+import { AD_PLACEMENTS } from "@/lib/ezoic";
 
 export function generateStaticParams() {
   return works.map((work) => ({ slug: work.slug }));
@@ -122,12 +124,14 @@ async function Writeup({
 
       <div className="flex w-full justify-center">
         <Constrained className="gap-0">
+          <EzoicAd id={AD_PLACEMENTS.projectTop} className="mb-12" />
           <article className="writeup-prose max-w-prose [&>h2:first-child]:mt-0">
             <Body />
           </article>
           <div className="mt-10">
             <TagList tags={work.tags} />
           </div>
+          <EzoicAd id={AD_PLACEMENTS.projectBottom} className="mt-12" />
         </Constrained>
       </div>
 

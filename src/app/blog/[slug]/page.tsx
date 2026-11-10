@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { NotionBlocks } from "@/components/blog/notion-blocks";
+import { EzoicAd } from "@/components/ads/ezoic-ad";
 import { Constrained } from "@/components/layout/constrained";
 import { Stagger, StaggerItem } from "@/components/motion";
 import { TagList } from "@/components/project/tag-list";
@@ -15,6 +16,7 @@ import {
   getPosts,
   readingTime,
 } from "@/lib/blog/posts";
+import { AD_PLACEMENTS } from "@/lib/ezoic";
 
 export async function generateStaticParams() {
   const posts = await getPosts();
@@ -100,9 +102,11 @@ async function Post({ params }: Pick<PageProps<"/blog/[slug]">, "params">) {
 
       <div className="flex w-full justify-center">
         <Constrained className="gap-0">
+          <EzoicAd id={AD_PLACEMENTS.postTop} className="mb-12" />
           <article className="writeup-prose max-w-prose [&>h2:first-child]:mt-0">
             <NotionBlocks blocks={post.blocks} links={post.links} />
           </article>
+          <EzoicAd id={AD_PLACEMENTS.postBottom} className="mt-12" />
         </Constrained>
       </div>
 

@@ -58,21 +58,23 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       )}
     >
       <head>
-        {/*<Script
+        <Script
           data-cfasync="false"
           src="https://cmp.gatekeeperconsent.com/min.js"
+          strategy="beforeInteractive"
         />
         <Script
           data-cfasync="false"
           src="https://the.gatekeeperconsent.com/cmp.min.js"
+          strategy="beforeInteractive"
         />
-        <Script async src="//www.ezojs.com/ezoic/sa.min.js" />
+        <script async src="//www.ezojs.com/ezoic/sa.min.js" />
         <script
           dangerouslySetInnerHTML={{
             __html: ezoicScript,
           }}
         />
-        <Script src="//ezoicanalytics.com/analytics.js" />*/}
+        <script async src="//ezoicanalytics.com/analytics.js" />
       </head>
       <body className="flex min-h-full flex-col">
         <script
@@ -83,12 +85,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         {children}
         <SiteFooter />
 
-        <Script
-          async
-          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${site.adsenseClient}`}
-          crossOrigin="anonymous"
-          strategy="afterInteractive"
-        />
         <Script
           src="https://scripts.simpleanalyticscdn.com/latest.js"
           data-skip-dnt="true"

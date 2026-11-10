@@ -13,7 +13,6 @@ export const site = {
   email: "hello@vantezzen.io",
   github: "https://github.com/vantezzen",
   portfolio: "https://hollstein.io",
-  adsenseClient: "ca-pub-8508732166185621",
   socials: [
     { label: "GitHub", href: "https://github.com/vantezzen", icon: Github },
   ],

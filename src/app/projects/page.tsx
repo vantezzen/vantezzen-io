@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { EzoicAd } from "@/components/ads/ezoic-ad";
 import { EntryList } from "@/components/entry";
 import { FeaturedProject } from "@/components/cards/featured-project";
 import { LibraryRow } from "@/components/cards/library-row";
@@ -13,6 +14,7 @@ import {
   libraries,
   projects,
 } from "@/content/works";
+import { AD_PLACEMENTS } from "@/lib/ezoic";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/projects" },
@@ -36,6 +38,8 @@ export default function ProjectsPage() {
           <Reveal>
             <FeaturedProject work={featured} highlights={featuredHighlights} />
           </Reveal>
+
+          <EzoicAd id={AD_PLACEMENTS.projects} />
 
           <div className="grid gap-x-6 gap-y-12 sm:grid-cols-2">
             {projects
