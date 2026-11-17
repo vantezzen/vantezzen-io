@@ -6,18 +6,18 @@ export default function ImpressumPage() {
   return (
     <LegalPage title="Impressum">
       <address>
-        Bennett Hollstein
+        vantezzen — Bennett Hollstein
         <br />
-        Reinbeckstr. 4-8, Apartement 322
         <br />
-        12459 Berlin
+        c/o Online-Impressum 13185
+        <br />
+        Europaring 90
+        <br />
+        53757 Sankt Augustin
       </address>
 
       <h2>Kontakt</h2>
-      <p>
-        E-Mail:{" "}
-        <a href="mailto:properly+webseite@pm.me">properly+webseite@pm.me</a>
-      </p>
+      <p>E-Mail: hello [AT] vantezzen [DOT] io</p>
 
       <h2>Haftung für Inhalte</h2>
       <p>

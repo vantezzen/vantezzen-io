@@ -27,18 +27,14 @@ export default function PrivacyPage() {
 
       <h2>Verantwortlicher</h2>
       <address>
-        Bennett Hollstein
+        vantezzen — Bennett Hollstein
         <br />
-        Reinbeckstr. 4-8, Apartement 322
         <br />
-        12459 Berlin
+        c/o Online-Impressum 13185
         <br />
-        Deutschland
+        Europaring 90
         <br />
-        E-Mail Addresse:{" "}
-        <a href="mailto:properly+datenschutz@pm.me">
-          properly+datenschutz@pm.me
-        </a>
+        53757 Sankt Augustin
       </address>
 
       <h2>Arten der verarbeiteten Daten</h2>
@@ -487,10 +483,10 @@ export default function PrivacyPage() {
       <p>
         Google AdSense verwendet Cookies und ähnliche Technologien (z.B.
         Gerätekennungen und lokale Speicherung im Browser). Dabei können
-        insbesondere folgende Daten verarbeitet werden: IP-Adresse, Browser-
-        und Geräteinformationen, die aufgerufene Seite und die zuvor besuchte
-        Seite (Referrer), Datum und Uhrzeit des Aufrufs sowie Interaktionen
-        mit Anzeigen. Mit diesen Daten werden Anzeigen ausgeliefert, deren
+        insbesondere folgende Daten verarbeitet werden: IP-Adresse, Browser- und
+        Geräteinformationen, die aufgerufene Seite und die zuvor besuchte Seite
+        (Referrer), Datum und Uhrzeit des Aufrufs sowie Interaktionen mit
+        Anzeigen. Mit diesen Daten werden Anzeigen ausgeliefert, deren
         Häufigkeit begrenzt, ihre Wirkung gemessen und Betrug erkannt.
       </p>
       <p>
@@ -507,12 +503,12 @@ export default function PrivacyPage() {
         Rechtsgrundlage für das Speichern und Auslesen von Informationen auf
         Ihrem Endgerät ist § 25 Abs. 1 TDDDG, für die weitere Verarbeitung Art.
         6 Abs. 1 lit. a DSGVO (Einwilligung). Sie können Ihre Einwilligung
-        jederzeit mit Wirkung für die Zukunft über den Link „Cookie settings“
-        im Footer jeder Seite widerrufen oder ändern.
+        jederzeit mit Wirkung für die Zukunft über den Link „Cookie settings“ im
+        Footer jeder Seite widerrufen oder ändern.
       </p>
       <p>
-        Google verarbeitet Daten auch in den USA. Google LLC ist unter dem
-        EU-US Data Privacy Framework zertifiziert, für das ein
+        Google verarbeitet Daten auch in den USA. Google LLC ist unter dem EU-US
+        Data Privacy Framework zertifiziert, für das ein
         Angemessenheitsbeschluss der EU-Kommission besteht. Weitere
         Informationen finden Sie in der{" "}
         <Ext href="https://policies.google.com/privacy">
@@ -536,18 +532,18 @@ export default function PrivacyPage() {
         eingesetzt werden dürfen, und können einzelne Zwecke und Anbieter
         auswählen oder ablehnen. Das Banner wird über die Consent-Management-
         Plattform „Datenschutz und Mitteilungen“ von Google (Google Ireland
-        Limited) bereitgestellt, die nach dem Transparency and Consent
-        Framework (TCF) des IAB Europe zertifiziert ist.
+        Limited) bereitgestellt, die nach dem Transparency and Consent Framework
+        (TCF) des IAB Europe zertifiziert ist.
       </p>
       <p>
         Ihre Entscheidung wird in einem Cookie in Ihrem Browser gespeichert
         (z.B. „FCCDCF“ und „FCNEC“), damit das Banner nicht bei jedem Aufruf
-        erneut erscheint und Ihre Auswahl an die Werbepartner übermittelt
-        werden kann. Gespeichert werden der Zeitpunkt, der Inhalt Ihrer
-        Entscheidung und technische Angaben zum Browser. Das Cookie wird
-        spätestens nach 13 Monaten gelöscht. Rechtsgrundlage ist Art. 6 Abs. 1
-        lit. c DSGVO in Verbindung mit Art. 7 Abs. 1 DSGVO (Nachweis der
-        Einwilligung) und § 25 Abs. 2 Nr. 2 TDDDG.
+        erneut erscheint und Ihre Auswahl an die Werbepartner übermittelt werden
+        kann. Gespeichert werden der Zeitpunkt, der Inhalt Ihrer Entscheidung
+        und technische Angaben zum Browser. Das Cookie wird spätestens nach 13
+        Monaten gelöscht. Rechtsgrundlage ist Art. 6 Abs. 1 lit. c DSGVO in
+        Verbindung mit Art. 7 Abs. 1 DSGVO (Nachweis der Einwilligung) und § 25
+        Abs. 2 Nr. 2 TDDDG.
       </p>
       <p>
         Sie können das Banner jederzeit über den Link „Cookie settings“ im
